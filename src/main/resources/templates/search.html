@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Search result</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<style>
+	
+	body {background-color: #CCFFFF;}
+	
+	</style>
+</head>
+
+<body >
+<br><br><br>
+<div align="center"><br><br><br>
+ <div class="container" align = "center">
+  <div class="container p-3 my-3 bg-primary text-white">
+	  <h1>Result List</h1>	<br><br>
+	  
+	</div>
+
+	  <table class="table">
+	    <thead>
+	            <tr>
+	                <th>Product ID</th>
+	                <th>Name</th>
+	                <th>Brand</th>
+	                <th>Made In</th>
+	                <th>Price</th>
+	                <th>Actions</th>
+	            </tr>
+	    </thead>
+	    <tbody>
+	 
+	        <tr class="success" th:each="product : ${result}">
+	                <td th:text="${product.id}">Product ID</td>
+	                <td th:text="${product.name}">Name</td>
+	                <td th:text="${product.brand}">Brand</td>
+	                <td th:text="${product.madein}">Made in</td>
+	                <td th:text="${product.price}">Price</td>
+	                <td>
+	                    <a th:href="@{'/edit/' + ${product.id}}">Edit</a>&thinsp;&thinsp;&thinsp;
+	                    <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+	                </td>
+	            </tr>
+		  
+	    </tbody>
+	  </table>
+	</div>
+</div>   
+</body>
+</html>
